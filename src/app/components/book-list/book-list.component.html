@@ -1,0 +1,25 @@
+<h2>Book List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Available Copies</th>
+      <th>Total Copies</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.availableCopies }}</td>
+      <td>{{ book.totalCopies }}</td>
+      <td>
+        <button (click)="borrowBook(book.id)">Borrow</button>
+        <button (click)="returnBook(book.id)">Return</button>
+        <button (click)="deleteBook(book.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
