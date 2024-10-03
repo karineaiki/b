@@ -45,8 +45,11 @@ export class BookService {
     if (book && book.availableCopies != book.totalCopies) {
       book.availableCopies++;
       return true;
-    } else {
+    } else if (book && book.availableCopies === book.totalCopies) {
       throw new Error('All copies of this book are already available')
+    } else {
+      throw new Error('This book does not exist')
+
     }
   }
 

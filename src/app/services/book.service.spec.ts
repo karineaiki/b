@@ -86,7 +86,7 @@ describe('BookService', () => {
 
   // Test : Ne pas retourner un livre qui n'existe pas
   it("should not be possible to return an unknown book", () => {
-    expect(() => service.returnBook(3)).not.toBeTrue
+    expect(() => service.returnBook(5)).toThrowError()
   })
 
   // Test : Ne pas retourner un livre dont toutes les copies ont déjà été rendues
@@ -112,6 +112,6 @@ describe('BookService', () => {
 
   //teste la fonction delete
   it ("it should be possible to delete a book", () => {
-    expect(() => service.deleteBook(3)).toBeTrue
+    expect(service.deleteBook(1)).toBe(true)
   })
 });
